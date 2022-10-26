@@ -1,4 +1,10 @@
 import java.util.Scanner;
+/*
+      program: At Home Assignment
+      Author: Noah Lowe
+      Date crated: 10/25/22
+      Date last modified 10/25/22
+*/
 
 public class Lesson_8b_Assignment_Rock_Paper_Scissors
 {
@@ -10,16 +16,16 @@ public class Lesson_8b_Assignment_Rock_Paper_Scissors
             int computerScore = 0;    // Computer score
             int tieScore = 0;         // Amount of ties
             int round = 1;            // Round number
-            float winLosePercent = 0; // win/lose percentage
+            float winLosePercent = 0F; // win/lose percentage
 
-            Scanner scan = new Scanner(System.in);
+            Scanner scan = new Scanner(System.in);  // initialize user input collection
 
             System.out.println();
             System.out.println();
             System.out.println("Welcome to Rock, Paper, Scissors."); // Intro title
 
             while (keepLooping) {
-                boolean validGame = true; // checks of the round is valid
+                boolean validGame = true; // checks of the round is valid for statistics
 
 
                 System.out.println();
@@ -55,9 +61,7 @@ public class Lesson_8b_Assignment_Rock_Paper_Scissors
 
                     System.out.println("The Player Wins!!!");
                     System.out.println();
-
                     playerScore = playerScore + 1;
-
 
                 } else if (playerInput.equals("r") && computerPlay.equals("p")) { // Rock Vs Paper
 
@@ -72,13 +76,11 @@ public class Lesson_8b_Assignment_Rock_Paper_Scissors
                     System.out.println();
                     playerScore = playerScore + 1;
 
-
                 } else if (playerInput.equals("p") && computerPlay.equals("s")) { // Paper Vs Scissors
 
                     System.out.println("The Computer Wins!!!");
                     System.out.println();
                     computerScore = computerScore + 1;
-
 
                 } else if (playerInput.equals("s") && computerPlay.equals("p")) { // Scissors Vs Paper
 
@@ -105,7 +107,8 @@ public class Lesson_8b_Assignment_Rock_Paper_Scissors
                 }
 
                 if (validGame) {
-                    winLosePercent = (playerScore / ((playerScore + computerScore) * 1f)) * 100f; // calculates win/lose percent
+                    winLosePercent = (playerScore / ((playerScore + computerScore) * 1f)) * 100f;   // calculates win/lose percent
+                                                                                                    // tie games are not counted
 
                     System.out.println("Round: " + round);                        // outputs round num
                     System.out.println();
