@@ -3,7 +3,7 @@ import java.util.Scanner;
       program: At Home Assignment
       Author: Noah Lowe
       Date crated: 10/25/22
-      Date last modified 10/25/22
+      Date last modified 10/26/22
 */
 
 public class Lesson_8b_Assignment_Rock_Paper_Scissors
