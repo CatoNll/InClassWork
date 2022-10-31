@@ -12,12 +12,12 @@ public class Lesson_8b_While_Loop_Assinment {
         String userNum = scan.nextLine(); // Takes the amount of times it should be outputted
 
         int userNumInt = Integer.parseInt(userNum); // converts the string to an Int
-        userNumInt = userNumInt + 1; // Increases the number of asked outputs by 1 since the if statement will cut off the amount by one
+        // Increases the number of asked outputs by 1 since the if statement will cut off the amount by one
 
         while (keepLooping) {
             System.out.println(numCounter + ") " + userName);
             numCounter = numCounter + 1;
-            if (numCounter == userNumInt) {
+            if (numCounter > userNumInt) {
                 keepLooping = false;
             }
 
@@ -37,13 +37,13 @@ public class Lesson_8b_While_Loop_Assinment {
         int startNumInt = Integer.parseInt(startNum); // converts the string to an Int
         int endNumInt = Integer.parseInt(endNum); // converts the string to an Int
         int divisorInt = Integer.parseInt(divisor); // converts the string to an Int
-        int divisorNum = 0;
 
         while (keepLooping) { // loops the equation
+            startNumInt = startNumInt + 1;
 
-            divisorNum = divisorNum + divisorInt; // adds the divisor with the divisor
-            System.out.println(divisorNum);
-            if (divisorNum >= endNumInt) { // once the max num is met it will stop the loop
+            if (startNumInt % divisorInt == 0) {
+                System.out.println(startNumInt);
+            } else if (startNumInt >= endNumInt) { // once the max num is met it will stop the loop
                 keepLooping = false;
             }
 
@@ -54,26 +54,29 @@ public class Lesson_8b_While_Loop_Assinment {
 
         keepLooping = true;
 
-        System.out.println("Enter the radius of a circle, enter a negative number to exit: ");
-        String radius = scan.nextLine();
-        System.out.println("Enter a to calculate the area of a circle, or enter c for the circumference: ");
-        String areaOrCircumference = scan.nextLine().toLowerCase();
 
-        int radiusInt = Integer.parseInt(radius);
 
         while (keepLooping) {
-            if (areaOrCircumference.equals("a")) {
+            System.out.println("Enter the radius of a circle, enter a negative number to exit: ");
+            String radius = scan.nextLine(); // takes the user radius
+            System.out.println("Enter a to calculate the area of a circle, or enter c for the circumference: ");
+            String areaOrCircumference = scan.nextLine().toLowerCase(); // takes the user ether wants to calculate the area
+                                                                        // or circumference
+
+            int radiusInt = Integer.parseInt(radius);
+
+            if (radiusInt < 0) { // if radius is a negative num, the loop will end
+                keepLooping = false;
+                System.out.println("Thanks of using the program");
+            }else if (areaOrCircumference.equals("a")) { // calculates the area
                 double area = Math.PI * Math.pow(radiusInt, 2);
                 System.out.println("The area of the circle is: " + area);
 
 
-            } else if (areaOrCircumference.equals("c")) {
+            } else if (areaOrCircumference.equals("c")) { // calculates the circumference
                 double circumference = 2 * Math.PI * radiusInt;
                 System.out.println("The circumference of the circle is: " + circumference);
 
-            } else if (radiusInt < 0) {
-                keepLooping = false;
-                System.out.println("Thanks of using the program");
             }
         }
     }
