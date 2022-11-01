@@ -1,5 +1,10 @@
 import java.util.Scanner;
-
+/*
+      program: InClass Assignment 2
+      Author: Noah Lowe
+      Date crated: 10/31/22
+      Date last modified 10/31/22
+*/
 public class Lesson_8b_While_Loop_Assinment {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
