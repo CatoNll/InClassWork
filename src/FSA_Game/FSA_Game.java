@@ -3,7 +3,7 @@ package FSA_Game;
 import java.util.Scanner;
 
 public class FSA_Game {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         int playerHealth = 100;
         int computerHealth = 100;
@@ -75,6 +75,7 @@ public class FSA_Game {
             int computerChouse = (int) Math.round(0.5 + Math.random() * 3);
 
             String computerPlay = null;
+            Thread.sleep(1000);
 
             switch (computerChouse) { // converts the random number for the generator to rock, paper, or scissors
                 case 1:
@@ -91,6 +92,8 @@ public class FSA_Game {
 
             System.out.println("The computer uses " + computerPlay);
             System.out.println();
+
+            Thread.sleep(1000);
 
             if (computerChouse == 1) {
                 int attackDamage = (int) Math.round(10 + Math.random() * 20);
