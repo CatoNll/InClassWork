@@ -2,7 +2,7 @@ package FSA_Game;
 
 import java.util.Scanner;
 
-public class FSA_Game {
+public class FSA_Game_Copy {
     public static void main(String[] args) throws InterruptedException {
         /*
         Character States
@@ -123,32 +123,35 @@ public class FSA_Game {
                 playerSpeed = 25;
             }
 
-                if (computerCharacterName.equals("Fire")) {
+            if (computerCharacterName.equals("Fire")) {
                 computerHealth = 100;
                 computerSpeed = 100;
-                } else if (computerCharacterName.equals("Water")) {
+            } else if (computerCharacterName.equals("Water")) {
                 computerHealth = 150;
                 computerSpeed = 50;
-                } else if (computerCharacterName.equals("Earth")) {
+            } else if (computerCharacterName.equals("Earth")) {
                 computerHealth = 200;
                 computerSpeed = 25;
-                }
-                System.out.println();
-                System.out.println("Player Character: " + userCharacterName);
-                System.out.println("Computer Character: " + computerCharacterName);
-                System.out.println("Player Health: " + playerHealth);
-                System.out.println("Computer Health: " + computerHealth);
-                System.out.println("Player Speed: " + playerSpeed);
-                System.out.println("Computer Speed: " + computerSpeed);
-                System.out.println();
+            }
+            System.out.println();
+            System.out.println("Player Character: " + userCharacterName);
+            System.out.println("Computer Character: " + computerCharacterName);
+            System.out.println("Player Health: " + playerHealth);
+            System.out.println("Computer Health: " + computerHealth);
+            System.out.println("Player Speed: " + playerSpeed);
+            System.out.println("Computer Speed: " + computerSpeed);
+            System.out.println();
 
-                if (computerHealth <= 0) {
-                    System.out.println("The Player wins!!!!");
-                    break;
-                } else if (playerHealth <= 0) {
-                    System.out.println("The computer wins!!!");
-                    break;
-                }
+            if (computerHealth <= 0) {
+                System.out.println("The Player wins!!!!");
+                break;
+            } else if (playerHealth <= 0) {
+                System.out.println("The computer wins!!!");
+                break;
+            }
+
+            for (int i = 0; i < 1; i++) {
+            if (playerSpeed > computerSpeed) {
 
                 System.out.println("Players turn!!!");
                 System.out.println("Enter 1 for a light attack, enter 2 for a heavy attack, enter 3 for a heal");
@@ -183,8 +186,8 @@ public class FSA_Game {
                         playerHealth = playerHealth + healing;
                     }
                 }
+            } else if (playerSpeed < computerSpeed) {
 
-                System.out.println();
                 System.out.println("Computers turn!!!!");
                 System.out.println();
 
@@ -224,7 +227,10 @@ public class FSA_Game {
                     System.out.println("The computer healed for " + healing + " damage!!!");
                     computerHealth = computerHealth + healing;
                 }
-                System.out.println();
+            }
+            }
+            System.out.println();
         }
     }
 }
+
