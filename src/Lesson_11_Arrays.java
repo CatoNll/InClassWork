@@ -81,7 +81,7 @@ public class Lesson_11_Arrays {
          */
 
         // d)
-
+        /*
         int array[] = new int[11];
 
         for (int i = 1; i<array.length; i++) {
@@ -90,6 +90,95 @@ public class Lesson_11_Arrays {
         System.out.println("Your array is: ");
         for (int i = 1; i<array.length; i++) {
             System.out.print(array[i] + " ");
+        }
+         */
+
+        // Array that is needs to be bigger then the users needs
+        /*
+        // Program to enter how much money you spend daily
+        // Make the array big enough to hold more then enough values
+        double cost[] = new double[1000]; // Big enough
+        int counter = 0;
+
+        while (true){
+            System.out.println("Enter how much money you made one day " + (counter + 1) + ": (Enter a negative value to quit");
+            double val = scan.nextDouble();
+            if (val < 0) {
+                break;
+            } else {
+                cost[counter] = val;
+                counter++;
+            }
+        }
+        // output them
+        for (int i = 0; i < counter; i++) {
+            System.out.println("Day " + (i+1) + ": " + cost[i]);
+        }
+
+        // for loop to add them up
+        double total = 0;
+        for (int i = 0; i < counter; i++) {
+            total += cost[i];
+        }
+        System.out.println("The total of all amounts: $" + total);
+         */
+
+        // Program 1
+        /*
+        // allows the user to enter test persantages (-1 to quit) into an int array
+        // with a while loop
+        // for loop to output all test scores nicely
+        // for loop to add up all the scores and use the value to output the average test scores
+        double scores[] = new double[10]; // Big enough
+        int counter = 0;
+        while (true) {
+            System.out.println("Enter the score on test " + (counter + 1) + ": (Enter a negative number to quit");
+            double val = scan.nextDouble();
+
+            if (val < 0) {
+                break;
+            } else {
+                scores[counter] = val;
+                counter++;
+            }
+        }
+        for (int i = 0; i < counter; i++) {
+            System.out.println("Your score in test " + (i+1) + " is: " + scores[i] + "%");
+        }
+        double total = 0;
+        for (int i = 0; i < counter; i++) {
+            total = (total + scores[i]);
+        }
+        System.out.println("The avrage of all of your test scores is: " + (total/counter) + "%");
+
+         */
+
+        // Program 2
+        /*
+        int nums[] = new int[10];
+
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = i * 4;
+        }
+        System.out.println("Your array for the multiples of 4 is: ");
+        for (int i = 0; i<nums.length; i++) {
+            System.out.print(nums[i] + " ");
+        }
+
+         */
+
+        // Program 3
+        System.out.println("Enter who may multiples of 4 you want: ");
+        int userchouse = scan.nextInt();
+
+        int nums[] = new int[userchouse];
+
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = i * 4;
+        }
+        System.out.println("Your array for the multiples of 4 is: ");
+        for (int i = 0; i<nums.length; i++) {
+            System.out.print(nums[i] + " ");
         }
     }
 }
