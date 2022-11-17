@@ -37,7 +37,10 @@ public class FSA_Game {
         System.out.println("Press Enter to continue. Enter q to quite");
         String userImput = scan.nextLine().toLowerCase();
 
-        while (keepLooping) {
+        String userCharacterName = null;
+
+        while (keepLooping)
+        {
 
             if (userImput.equals("q")) {
                 System.out.println("Thanks for playing Monster Fights!!!");
@@ -68,7 +71,8 @@ public class FSA_Game {
                     System.out.println("You entered an invalid input. Try entering 1, 2, or 3");
                 }
             }
-            String userCharacterName = null;
+
+
             switch (userCharacter) {
                 case 1:
                     userCharacterName = "Fire";
