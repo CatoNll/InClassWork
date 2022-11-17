@@ -168,6 +168,7 @@ public class Lesson_11_Arrays {
          */
 
         // Program 3
+        /*
         System.out.println("Enter who may multiples of 4 you want: ");
         int userchouse = scan.nextInt();
 
@@ -180,5 +181,56 @@ public class Lesson_11_Arrays {
         for (int i = 0; i<nums.length; i++) {
             System.out.print(nums[i] + " ");
         }
+         */
+
+        // Program 4
+        /*
+
+        int phoneNum[] = new int[10];
+        String names[] = new String[10];
+        int counter = 0;
+        for (int i = 0; i<phoneNum.length; i++) {
+            phoneNum[i] = (int) (1000000+Math.random()*9999999);
+        }
+        for (int i = 0; i<names.length; i++) {
+            counter++;
+            System.out.println("Enter name number " + counter + ":");
+            names[i] = scan.nextLine();
+        }
+        for (int i = 0; i<phoneNum.length; i++) {
+            System.out.println("The phone number for " + names[i] + " is: " + phoneNum[i]);
+        }
+         */
+
+        // Program 5
+
+        int diceRoll[] = new int[100];
+        int rollCounts[] = new int[13];
+        for (int i = 0; i < rollCounts.length; i++) {
+            rollCounts[i] = 0;
+        }
+        for (int i = 0; i < diceRoll.length; i++) {
+            int roll1 = (int) (1 + Math.random()* 5.99);
+            int roll2 = (int) (1 + Math.random()* 5.99);
+            int rollTotal = roll1 + roll2;
+            diceRoll[i] = rollTotal;
+            // System.out.println("Roll " + (i + 1) + " is: " + rollTotal);
+
+            rollCounts[rollTotal] += 1;
+            // if you roll at 7, rollCounts[7] += 1
+
+        }
+        for (int i = 2; i < rollCounts.length; i++) {
+            System.out.println("You rolled a " + i + "; " + rollCounts[i] + " times.");
+        }
+
+        System.out.print("counts: ");
+        for (int i = 2; i < rollCounts.length; i++){
+            System.out.print(rollCounts[i] + " ");
+            if (i != rollCounts.length-1){
+                System.out.print(", ");
+            }
+        }
+        System.out.println();
     }
 }
