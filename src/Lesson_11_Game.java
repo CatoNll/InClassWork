@@ -31,12 +31,25 @@ public class Lesson_11_Game {
         int round = 0;
         int playerScore = 0;
         int computerScore = 0;
+        int gameRule = 0;
 
 
         System.out.println("Welcome to Black Jack. Press Enter to play. Press q to exit. ");
         String userimput = scan.nextLine().toLowerCase();
+        if (userimput.equals("q")) {
+            System.out.println("Thank you for playing!");
+            keepLooping = false;
+        }
+        round++;
+        System.out.println("How many cards do you want to play. (Recommended: 3 cards) ");
+        cardAmount = scan.nextInt();
+        System.out.println("What game rule do you want to play. " +
+                "(1. Cards added together after being multiple to a random power. 2. )");
+        gameRule = scan.nextInt();
+
 
         while (keepLooping) {
+            /*
             if (userimput.equals("q")) {
                 System.out.println("Thank you for playing!");
                 keepLooping = false;
@@ -44,6 +57,11 @@ public class Lesson_11_Game {
             round++;
             System.out.println("How many cards do you want to play. (Recommended: 3 cards) ");
             cardAmount = scan.nextInt();
+            System.out.println("What game rule do you want to play. " +
+                    "(1. Cards added together after being multiple to a random power. 2. )");
+            gameRule = scan.nextInt();
+
+             */
             System.out.println("Round: " + round);
             System.out.print("Player Score: " + playerScore);
             System.out.print("                       Computer Score: " + computerScore);
@@ -89,31 +107,32 @@ public class Lesson_11_Game {
                 playerCardsRule1 = playerCardsRule1 + playerCards[i];
                 computerCardsRule1 = computerCardsRule1 + computerCards[i];
             }
+            if (gameRule == 1) {
+                System.out.println();
+                System.out.println("Your cards to the power of " + randompower + " then add together are: " + playerCardsRule1);
+                System.out.println("The computers cards to the power of " + randompower + " then add together are: " + computerCardsRule1);
+                System.out.println();
 
-            System.out.println();
-            System.out.println("Your cards to the power of 2 then add together are: " + playerCardsRule1);
-            System.out.println("The computers cards to the power of 2 then add together are: " + computerCardsRule1);
-            System.out.println();
+                if (playerCardsRule1 > computerCardsRule1) {
 
-            if (playerCardsRule1 > computerCardsRule1) {
+                    System.out.println("You win this round");
+                    System.out.println("You won because your cards added together after being calculated to the power of "
+                            + randompower + " was bigger then the computers cards.");
+                    playerScore++;
 
-                System.out.println("You win this round");
-                System.out.println("You won because your cards added together after being calculated to the power of "
-                        + randompower + " was bigger then the computers cards.");
-                playerScore++;
-
-            } else {
-                System.out.println("The computer win this round");
-                System.out.println("The computer won because their cards added together after being calculated to the power of "
-                        + randompower + " was bigger then your cards.");
-                computerScore++;
+                } else {
+                    System.out.println("The computer win this round");
+                    System.out.println("The computer won because their cards added together after being calculated to the power of "
+                            + randompower + " was bigger then your cards.");
+                    computerScore++;
+                }
             }
-
-
-
+            System.out.println("Press enter to continue or press q to exit.");
+            if (userimput.equals("q")) {
+                System.out.println("Thank you for playing!");
+                keepLooping = false;
+            }
         }
-
-
     }
 }
 
