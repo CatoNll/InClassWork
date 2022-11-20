@@ -12,22 +12,26 @@ public class Lesson_11_Game {
 
         Scanner scan = new Scanner(System.in);
         Boolean keepLooping = true;
-        int cardAmount = 0;
+        int cardAmount = 3;
         int playerCardsRule1 = 0;
         int computerCardsRule1 = 0;
+        int playerCardsRule2 = 0;
+        int computerCardsRule2 = 0;
         int round = 0;
         int playerScore = 0;
         int computerScore = 0;
         int gameRule = 0;
 
 
-        System.out.println("Welcome to Black Jack. Press Enter to play. Press q to exit. ");
-        String userimput = scan.nextLine().toLowerCase();
-
+        System.out.println("Welcome to Black Jack.");
+           
+           
+           
 
 
         while (keepLooping) {
-
+            System.out.println("Press Enter to play. Press q to exit. ");
+            String userimput = scan.nextLine().toLowerCase();
             if (userimput.equals("q")) {
                 System.out.println("Thank you for playing!");
                 break;
@@ -37,10 +41,8 @@ public class Lesson_11_Game {
             System.out.print("Player Score: " + playerScore);
             System.out.print("                       Computer Score: " + computerScore);
             System.out.println();
-            System.out.println("How many cards do you want to play. (Recommended: 3 cards) ");
-            cardAmount = scan.nextInt();
             System.out.println("What game rule do you want to play. " +
-                    "(1. Cards added together after being multiple to a random power. 2. )");
+                    "(1. Cards added together after being multiple to a random power. 2. The average of the cards)");
             gameRule = scan.nextInt();
 
 
@@ -85,6 +87,7 @@ public class Lesson_11_Game {
                 playerCardsRule1 = playerCardsRule1 + playerCards[i];
                 computerCardsRule1 = computerCardsRule1 + computerCards[i];
             }
+
             if (gameRule == 1) {
                 for(int i = 0; i < cardAmount; i++) {
                     System.out.println();
@@ -95,7 +98,7 @@ public class Lesson_11_Game {
 
                     if (playerCardsRule1 > computerCardsRule1) {
                         for(int i = 0; i < cardAmount; i++) {
-                            System.out.println("You win this round");
+                            System.out.println("You win this round!");
                             System.out.println("You won because your cards added together after being calculated to the power of "
                                     + randompower1[i] + " was bigger then the computers cards.");
                         }
@@ -103,11 +106,27 @@ public class Lesson_11_Game {
 
                     } else {
                         for(int i = 0; i < cardAmount; i++) {
-                            System.out.println("The computer win this round");
+                            System.out.println("The computer win this round!");
                             System.out.println("The computer won because their cards added together after being calculated to the power of "
                                     + randompower2[i] + " was bigger then your cards.");
                         }
                         computerScore++;
+                }
+            } else if (gameRule == 2) {
+
+                playerCardsRule2 = (playerCards[0] + playerCards[1] + playerCards[2])/cardAmount;
+                computerCardsRule2 = (computerCards[0] + computerCards[1] + computerCards[2])/cardAmount;
+                System.out.println("The avrage of the players cards are: " + playerCardsRule2);
+                System.out.println("The avrage of the computers cards are: " + computerCardsRule2);
+
+                if (playerCardsRule1 > computerCardsRule1) {
+                    System.out.println("You win this round!");
+                    System.out.println("Your cards averaged together where bigger then the computers");
+                    playerScore++;
+                } else {
+                     System.out.println("The computer wins this round!");
+                     System.out.println("The computers cards averaged together where bigger then yours");
+                     computerScore++;
                 }
             }
             System.out.println("Press enter to continue or press q to exit.");
