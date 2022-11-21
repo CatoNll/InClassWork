@@ -24,10 +24,6 @@ public class Lesson_11_Game {
 
 
         System.out.println("Welcome to Black Jack.");
-           
-           
-           
-
 
         while (keepLooping) {
             System.out.println("Press Enter to play. Press q to exit. ");
