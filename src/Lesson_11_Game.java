@@ -105,7 +105,7 @@ public class Lesson_11_Game {
 
             if (gameRule == 1) {
                 System.out.println();
-                // rule 1: the cards that add together by the power of 2 will win
+                // rule 1: the cards that add together by a random power will win
                 for (int i = 0; i < cardAmount; i++) {
                     // chooses the random powers
                     randomPower1[i] = (int) (1 + Math.random()* 2.99);
@@ -151,9 +151,11 @@ public class Lesson_11_Game {
                     playerWin = false;
                 }
             } else if (gameRule == 2) {
-
+                // rule 2: The player with a higher average will win
+                // add all the cards then divided by the amount of cards
                 playerCardsRule2 = (playerCards[0] + playerCards[1] + playerCards[2])/cardAmount;
                 computerCardsRule2 = (computerCards[0] + computerCards[1] + computerCards[2])/cardAmount;
+                // output
                 System.out.println("The average of the players cards are: " + playerCardsRule2);
                 System.out.println("The average of the computers cards are: " + computerCardsRule2);
 
@@ -170,7 +172,7 @@ public class Lesson_11_Game {
 
             }
             System.out.println();
-
+            // output
             if (playerWin) {
                 playerMoney = playerMoney + (playerBet + computerBet);
                 System.out.println("You won $" + (playerBet + computerBet));
