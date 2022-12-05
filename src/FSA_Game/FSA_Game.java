@@ -28,6 +28,9 @@ public class FSA_Game {
         int computerHealth = 0;
         int playerSpeed = 0;
         int computerSpeed = 0;
+        int playerShield = 0;
+        int computerShield = 0;
+
 
         Scanner scan = new Scanner(System.in);
         boolean keepLooping = true;
@@ -55,17 +58,17 @@ public class FSA_Game {
                 if (characterCourse == 1) {
                     System.out.println();
                     System.out.println("You have selected Fire");
-                    userCharacter = userCharacter + 1;
+                    userCharacter = 1;
                     characterLoop = false;
                 } else if (characterCourse == 2) {
                     System.out.println();
                     System.out.println("You have selected Water");
-                    userCharacter = userCharacter + 2;
+                    userCharacter = 2;
                     characterLoop = false;
                 } else if (characterCourse == 3) {
                     System.out.println();
                     System.out.println("You have selected Earth");
-                    userCharacter = userCharacter + 3;
+                    userCharacter = 3;
                     characterLoop = false;
                 } else {
                     System.out.println("You entered an invalid input. Try entering 1, 2, or 3");
@@ -155,7 +158,7 @@ public class FSA_Game {
                 }
 
                 System.out.println("Players turn!!!");
-                System.out.println("Enter 1 for a light attack, enter 2 for a heavy attack, enter 3 for a heal");
+                System.out.println("Enter 1 for a light attack, enter 2 for a heavy attack, enter 3 for a heal, enter 4 for a shield");
                 int userAttackChouse = scan.nextInt();
                 System.out.println();
 
@@ -186,6 +189,10 @@ public class FSA_Game {
                         System.out.println("You healed for a CRITICAL " + healing + " damage!!");
                         playerHealth = playerHealth + healing;
                     }
+                } else if (userAttackChouse == 4) {
+                    int shield = (int) Math.round(20 + Math.random() * 100);
+                    System.out.println("You gained a " + shield + " health shield!!");
+                    playerShield = playerShield + shield;
                 }
 
                 System.out.println();
@@ -195,7 +202,7 @@ public class FSA_Game {
                 int computerChouse = (int) Math.round(0.5 + Math.random() * 3);
 
                 String computerPlay = null;
-                Thread.sleep(1000);
+
 
                 switch (computerChouse) {
                     case 1:
@@ -208,12 +215,16 @@ public class FSA_Game {
                     case 3:
                         computerPlay = "Heal";
                         break;
+                    case 4:
+                        computerPlay = "shield";
+                        break;
+
                 }
 
                 System.out.println("The computer uses " + computerPlay);
                 System.out.println();
 
-                Thread.sleep(1000);
+
 
                 if (computerChouse == 1) {
                     int attackDamage = (int) Math.round(10 + Math.random() * 20);

@@ -27,6 +27,8 @@ public class gametest {
             computerCards[i] = computerCardNum; // states the computers cards
         }
 
+
+
         System.out.print("Your cards are: "); // outputs the player cards
         for (int i = 0; i < cardAmount; i++) {
             System.out.print(playerCards[i] + ", ");
@@ -39,7 +41,12 @@ public class gametest {
         }
         System.out.println();
 
-
+        for (int i = 0; i < cardAmount; i++) {
+            playerCardsRule2 = playerCardsRule2 + playerCards[i];
+            computerCardsRule2 = computerCardsRule2 + computerCards[i];
+        }
+        System.out.println("The average of the players cards are: " + (playerCardsRule2/cardAmount));
+        System.out.println("The average of the computers cards are: " + (computerCardsRule2/cardAmount));
 
         //playerCardsRule2 = (playerCards[0] + playerCards[1] + playerCards[2])/cardAmount;
         //computerCardsRule2 = (computerCards[0] + computerCards[1] + computerCards[2])/cardAmount;

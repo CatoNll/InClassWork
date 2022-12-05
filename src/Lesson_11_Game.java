@@ -148,35 +148,36 @@ public class Lesson_11_Game {
                     }
                     System.out.println("was bigger then your cards.");
                     computerScore++;
-                    playerWin = false;
+                    playerWin = false; // tells the progam to not add the money to the player
                 }
             } else if (gameRule == 2) {
                 // rule 2: The player with a higher average will win
                 // add all the cards then divided by the amount of cards
-                playerCardsRule2 = (playerCards[0] + playerCards[1] + playerCards[2])/cardAmount;
-                computerCardsRule2 = (computerCards[0] + computerCards[1] + computerCards[2])/cardAmount;
-                // output
-                System.out.println("The average of the players cards are: " + playerCardsRule2);
-                System.out.println("The average of the computers cards are: " + computerCardsRule2);
+                for (int i = 0; i < cardAmount; i++) { // adds all for the different cards together
+                    playerCardsRule2 = playerCardsRule2 + playerCards[i];
+                    computerCardsRule2 = computerCardsRule2 + computerCards[i];
+                }
+                System.out.println("The average of the players cards are: " + (playerCardsRule2/cardAmount));
+                System.out.println("The average of the computers cards are: " + (computerCardsRule2/cardAmount));
 
-                if (playerCardsRule1 > computerCardsRule1) {
+                if (playerCardsRule2 > computerCardsRule2) { // if the player wins
                     System.out.println("You win this round!");
                     System.out.println("Your cards averaged together where bigger then the computers");
                     playerScore++;
-                } else {
+                } else { // else the computer wins
                     System.out.println("The computer wins this round!");
                     System.out.println("The computers cards averaged together where bigger then yours");
                     computerScore++;
-                    playerWin = false;
+                    playerWin = false; // tells the progam to not add the money to the player
                 }
 
             }
             System.out.println();
             // output
-            if (playerWin) {
+            if (playerWin) { // if the player wins the player wins the money
                 playerMoney = playerMoney + (playerBet + computerBet);
                 System.out.println("You won $" + (playerBet + computerBet));
-            } else {
+            } else { // if the computer wins the computer wins the money
                 computerMoney = computerMoney + (playerBet + computerBet);
                 System.out.println("The computer won $" + (playerBet + computerBet));
             }
