@@ -1,6 +1,7 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Lesson_14_Multidimensional_Arrays {
+public class Lesson_15_Multidimensional_Arrays {
     public static void main(String[] args) {
         // 1D Array
 /*
@@ -70,22 +71,34 @@ public class Lesson_14_Multidimensional_Arrays {
 
  */
         // 3)
-/*
+
         Scanner scan = new Scanner(System.in);
+/*
         String table[][] = new String[][] {{"Brandon", "Alec", "Noah"},
                 {"Rudick", "Freilich", "Lowe"}, {"Red", "Green", "Blue"}};
         String currentLine;
         for (int r = 0; r< table.length; r++) {
-            currentLine = "|"; // blank string for a new row
+            currentLine = "| "; // blank string for a new row
             for (int c = 0; c<table[0].length; c++) {
                 currentLine += String.valueOf(table[r][c]) + " | "; // add current cell
             }
             System.out.println(currentLine);
         }
-        System.out.println("Which column? ");
-        int userInput = scan.nextInt();
-        System.out.println("Name: " + table[1][userInput] + ", " + table[0][userInput] + ". Colour: " + table[2][userInput]);
+        while (true) {
+            try {
+                System.out.println("Which column? ");
+                int userInput = scan.nextInt();
+                if ((userInput >= 0) && (userInput < table.length)) {
+                    System.out.println("Name: " + table[1][userInput] + ", " + table[0][userInput] + ". Colour: " + table[2][userInput]);
+                } else {
+                    System.out.println("The valid range is between 0 - " + (table.length - 1));
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("The valid range is between 0 - " + (table.length - 1));
+                scan.next();
+            }
 
+        }
  */
     }
 }
