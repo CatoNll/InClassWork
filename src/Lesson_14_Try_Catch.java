@@ -1,6 +1,7 @@
 import java.beans.IndexedPropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Lesson_14_Try_Catch {
@@ -38,22 +39,34 @@ public class Lesson_14_Try_Catch {
 
   */
             boolean keepLooping = true;
-            int test[] = new int[1000];
-            int testScores = 0;
+            ArrayList<Integer> testScores = new ArrayList<Integer>();
+
             System.out.println("Enter your test scores between 0 and 100 or enter -1 to quit: ");
             while (keepLooping) {
-                testScores = scan.nextInt();
-                if (testScores < 0) {
-                    System.out.println("Your test scores are");
-                    for (int i = 0; i < test.length; i++) {
-                        System.out.println(test[i] + " ");
+
+
+                try {
+                    int testScore = scan.nextInt();
+
+                    if ((testScore >= 0) && (testScore <= 100)) {
+                        testScores.add(testScore);
+                    } else if (testScore == -1) {
+                        System.out.println("Your test scores are: ");
+                        for (int i = 0; i < testScores.size(); i++) {
+                            System.out.println("Test " + (i + 1) + ": "+ testScores.get(i));
+                        }
+                    } else {
+                        System.out.println("number must be between 1 and 100.");
                     }
-                }
-                for (int i =0; i < test.length; i++) {
-                    test[i] = test[i] + testScores;
+
+                } catch (InputMismatchException e) {
+                    System.out.println("Inappropriate input, please try again");
+                    scan.next();
                 }
 
             }
+
+
         }
-}
+    }
 
