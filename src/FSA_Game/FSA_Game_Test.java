@@ -7,12 +7,13 @@ public class FSA_Game_Test {
 
         int round = 0;
         int playerHealth = 100;
-        int computerHealth  = 100;
+        int computerHealth = 100;
         boolean playerBurn = false;
         boolean computerBurn = false;
         int playerBurnTime = 0;
         int computerBurnTime = 0;
         boolean keepLooping = true;
+        int damage = 0;
         int tripleStrikeTotalDamage = 0;
         int fireAbilityCooldown2 = 0;
         int fireAbilityCooldown3 = 0;
@@ -20,6 +21,9 @@ public class FSA_Game_Test {
         boolean coolDowns = false;
         double damageBoost = 0;
         int damageBoostUptime = 0;
+        int playerArmor = 0;
+        int computerArmor = 20;
+        int playerInput = 0;
 
         /*
         Fire ability
@@ -38,6 +42,20 @@ public class FSA_Game_Test {
         - three different strike
 
         4.
+
+        Rock ability
+
+        1. Basic strike
+        - Low damage
+        - Add small amount of armor
+
+        2. Defencev ability
+        - adds armor
+        - adds shield
+
+        3. Stun attack
+        - large amount of damage
+        - Chance of a stun
          */
 
         // Fire Test
@@ -46,6 +64,9 @@ public class FSA_Game_Test {
 
         while (keepLooping) {
             round = round + 1;
+            if (playerInput == 3) {
+                computerHealth = computerHealth - damage;
+            }
 
             if (playerBurn == true && playerBurnTime != 0) {
                 int burn = (int) Math.round(5 + Math.random() * 20);
@@ -87,6 +108,12 @@ public class FSA_Game_Test {
             System.out.println("Round: " + round);
             System.out.println("Player Health: " + playerHealth);
             System.out.println("Computer Health: " + computerHealth);
+            if (playerArmor != 0) {
+                System.out.println("The player has " + playerArmor + " armor! Equal to " + playerArmor + "% damage reduction");
+            }
+            if (computerArmor != 0) {
+                System.out.println("The computer has " + computerArmor + " armor! Equal to " + computerArmor + "% damage reduction");
+            }
             if (playerBurn == true) {
                 System.out.println("The player is effected by BURN for " + playerBurnTime + " rounds");
             }
@@ -96,10 +123,10 @@ public class FSA_Game_Test {
             // 1. basic strike
 
             System.out.println("Enter 1 of a basic attack. Enter 2 damage boost. Enter 3 for Triple Strike");
-            int playerInput = scan.nextInt();
-
+            playerInput = scan.nextInt();
+/*
             if (playerInput == 1) {
-                int damage = (int) Math.round(10 + Math.random() * 30);
+                damage = (int) Math.round(10 + Math.random() * 30);
                 if (damageBoost != 0) {
                     double damageDub = Double.valueOf(damage);
                     damageDub = damage * damageBoost;
@@ -107,27 +134,30 @@ public class FSA_Game_Test {
                 } else {
                     System.out.println("The player dealt " + damage + " damage to the computer");
                 }
-                computerHealth = computerHealth - damage;
+
                 computerBurn = true;
                 computerBurnTime = computerBurnTime + 3;
 
             }
 
-            // 2.
+
+ */
+            // 2. Damage Boost
+/*
             if (playerInput == 2) {
                 damageBoost = 1.3;
                 System.out.println("The player have increased their power by 30%");
             }
-
+ */
 
 
             // 3. Triple strike
-/*
+
             if (playerInput == 3 && fireAbilityCooldown3 == 0) {
                 int playerTripleStrike[] = new int[3];
-                int tripleStrikeDamage [] = new int[3];
+                int tripleStrikeDamage[] = new int[3];
                 for (int i = 0; i < playerTripleStrike.length; i++) {
-                    int damage = (int) Math.round(5 + Math.random() * 15);
+                    damage = (int) Math.round(5 + Math.random() * 15);
                     tripleStrikeDamage[i] = damage;
                 }
                 System.out.print("Players three strikes dealt ");
@@ -138,7 +168,19 @@ public class FSA_Game_Test {
                 System.out.println("for the total of " + tripleStrikeTotalDamage + " damage!");
                 computerHealth = computerHealth - tripleStrikeTotalDamage;
                 fireAbilityCooldown3 = 4;
- */
+
+                // Rock Test
+
+                if (playerInput == 1) {
+                    damage = (int) Math.round(10 + Math.random() * 30);
+                    System.out.println("The player dealt " + damage + " damage to the computer");
+                    playerArmor += (int) Math.round(5 + Math.random() * 20);
+                    System.out.println("The player gained " + playerArmor + " armor");
+
+                }
+
+
             }
         }
     }
+}
