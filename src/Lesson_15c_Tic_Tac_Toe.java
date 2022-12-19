@@ -18,13 +18,16 @@ public class Lesson_15c_Tic_Tac_Toe {
                 tttBoard[r][c] = " ";
             }
         }
-        for (int r = 0; r < tttBoard.length; r++) {
-            for (int c = 0; c < tttBoard[r].length; c++) {
+        for (int r = 0; r < tttBoard.length; r++)
+        {
+            for (int c = 0; c < tttBoard[r].length; c++)
+            {
+
                 System.out.print("|" + tttBoard[r][c]);
             }
-            System.out.println("|");
-            System.out.println("_______");
 
+            System.out.println("|");
+            System.out.println("-------");
         }
 
         while (keepLooping) {
@@ -103,8 +106,6 @@ public class Lesson_15c_Tic_Tac_Toe {
                 System.out.println("_______");
 
                 }
-
-
 
         }
     }
