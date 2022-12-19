@@ -1,3 +1,10 @@
+/*
+      program: Tic Tac Toe
+      Author: Noah Lowe, Roni Melamed
+      Date crated: 2022/12/15
+      Date last modified: 2022/12/22
+       */
+
 import java.util.Scanner;
 
 public class Lesson_15c_Tic_Tac_Toe {
