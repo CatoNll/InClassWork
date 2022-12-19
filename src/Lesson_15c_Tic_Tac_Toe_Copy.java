@@ -141,6 +141,11 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
                 round += 1;
                 player1Score += 1;
                 turnNum = 0;
+                for (int r = 0; r < tttBoard.length; r++) {
+                    for (int c = 0; c < tttBoard[r].length; c++) {
+                        tttBoard[r][c] = " ";
+                    }
+                }
             } else if ((tttBoard[0][0] == player2 && tttBoard[0][1] == player2 && tttBoard[0][2] == player2) ||
                     (tttBoard[1][0] == player2 && tttBoard[1][1] == player2 && tttBoard[1][2] == player2) ||
                     (tttBoard[2][0] == player2 && tttBoard[2][1] == player2 && tttBoard[2][2] == player2) ||
@@ -153,6 +158,11 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
                 round += 1;
                 player2Score += 1;
                 turnNum = 0;
+                for (int r = 0; r < tttBoard.length; r++) {
+                    for (int c = 0; c < tttBoard[r].length; c++) {
+                        tttBoard[r][c] = " ";
+                    }
+                }
             }
 
 
