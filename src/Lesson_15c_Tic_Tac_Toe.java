@@ -5,6 +5,7 @@
       Date last modified: 2022/12/22
 */
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Lesson_15c_Tic_Tac_Toe {
@@ -19,9 +20,18 @@ public class Lesson_15c_Tic_Tac_Toe {
         int player2Score = 0;
         int player1Input = 0;
         int player2Input = 0;
+        int checkSpot = 0;
+        String playerExit = "y"; // to give them the option to quit later on
+
+        // creating boolean variables to control while loops
         boolean keepLooping = true;
         boolean badInput1 = true;
         boolean badInput2 = true;
+
+        // creating String array list to strong winner of each round
+        ArrayList<String> winner= new ArrayList<>();
+
+        // creating 3x3 board
         String tttBoard[][] = new String[3][3];
         System.out.println("Welcome to Tic Tac Toe. Press enter to continue");
         String enter = scan.nextLine();
@@ -43,6 +53,11 @@ public class Lesson_15c_Tic_Tac_Toe {
         }
 
         while (keepLooping) {
+
+            // resetting scanner (for when the round repeats)
+            scan = new Scanner(System.in);
+
+            // increasing turn count every time a player goes
             turnNum += 1;
             System.out.println("Round: " + round);
             System.out.println("Turn: " + turnNum);
@@ -50,6 +65,23 @@ public class Lesson_15c_Tic_Tac_Toe {
             System.out.println("Player 2 score: " + player2Score);
             System.out.println("Enter -1 to quit. ");
             System.out.println();
+
+            // if player chooses to exit game (enters negative value), game will end
+            if ((player1Input == -1) || (player2Input == -1) || (playerExit.equals("n"))) {
+                double player1WinPercent = (player1Score/(round - 1))*100;
+                double player2WinPercent = (player2Score/(round - 1))*100;
+
+                // outputting thank you message, win percentages, and the order of winners (so far)
+                System.out.println("Thank you for playing!");
+                System.out.println("Player 1 win percentage: " + String.format("%.2f", player1WinPercent) + "%. ");
+                System.out.println("Player 2 win percentage: " + String.format("%.2f", player2WinPercent) + "%. ");
+                System.out.print("There winning order is: ");
+                for (int i = 0; i < winner.size(); i++) {
+
+                    System.out.print(winner.get(i) + " ");
+                }
+                break;
+            }
 
 
                 if (turnNum % 2 != 0) {
@@ -245,15 +277,8 @@ public class Lesson_15c_Tic_Tac_Toe {
                 System.out.println("_______");
 
                 }
-            if ((player1Input == -1) || (player2Input == -1)) {
-                double player1WinPercent = player1Score/round;
-                double player2WinPercent = player2Score/round;
-                System.out.println("Thank you for playing!");
-                System.out.println("Player 1 win percentage: " + player1WinPercent + "%. ");
-                System.out.println("Player 2 win percentage: " + player2WinPercent + "%. ");
-                break;
-            }
 
+            scan = new Scanner(System.in);
             if ((tttBoard[0][0] == player1 && tttBoard[0][1] == player1 && tttBoard[0][2] == player1) ||
                     (tttBoard[1][0] == player1 && tttBoard[1][1] == player1 && tttBoard[1][2] == player1) ||
                     (tttBoard[2][0] == player1 && tttBoard[2][1] == player1 && tttBoard[2][2] == player1) ||
@@ -262,7 +287,7 @@ public class Lesson_15c_Tic_Tac_Toe {
                     (tttBoard[0][2] == player1 && tttBoard[1][2] == player1 && tttBoard[2][2] == player1) ||
                     (tttBoard[0][0] == player1 && tttBoard[1][1] == player1 && tttBoard[2][2] == player1) ||
                     (tttBoard[0][2] == player1 && tttBoard[1][1] == player1 && tttBoard[2][0] == player1)) {
-                System.out.println("Player 1 won this round!");
+                System.out.println("Player 1 won this round in " + turnNum + " turns!");
                 round += 1;
                 player1Score += 1;
                 turnNum = 0;
@@ -271,6 +296,11 @@ public class Lesson_15c_Tic_Tac_Toe {
                         tttBoard[r][c] = " ";
                     }
                 }
+                winner.add(player1);
+
+
+                System.out.println("Do you want to play an other round? y/n");
+                playerExit = scan.nextLine().toLowerCase();
             } else if ((tttBoard[0][0] == player2 && tttBoard[0][1] == player2 && tttBoard[0][2] == player2) ||
                     (tttBoard[1][0] == player2 && tttBoard[1][1] == player2 && tttBoard[1][2] == player2) ||
                     (tttBoard[2][0] == player2 && tttBoard[2][1] == player2 && tttBoard[2][2] == player2) ||
@@ -279,7 +309,7 @@ public class Lesson_15c_Tic_Tac_Toe {
                     (tttBoard[0][2] == player2 && tttBoard[1][2] == player2 && tttBoard[2][2] == player2) ||
                     (tttBoard[0][0] == player2 && tttBoard[1][1] == player2 && tttBoard[2][2] == player2) ||
                     (tttBoard[0][2] == player2 && tttBoard[1][1] == player2 && tttBoard[2][0] == player2)) {
-                System.out.println("Player 2 won this round!");
+                System.out.println("Player 2 won this round in " + turnNum + " turns!");
                 round += 1;
                 player2Score += 1;
                 turnNum = 0;
@@ -288,6 +318,33 @@ public class Lesson_15c_Tic_Tac_Toe {
                         tttBoard[r][c] = " ";
                     }
                 }
+                winner.add(player2);
+
+                System.out.println("Do you want to play an other round? y/n");
+                playerExit = scan.nextLine().toLowerCase();
+            }
+
+            for (int r = 0; r < tttBoard.length; r++) {
+                for (int c = 0; c < tttBoard[r].length; c++) {
+                    if (tttBoard[r][c] != " ") {
+                        checkSpot += 1;
+                    }
+                }
+            }
+            if (checkSpot == 9){
+                System.out.println("tie game! no winner!");
+                System.out.println("Do you want to play an other round? y/n");
+                playerExit = scan.nextLine().toLowerCase();
+                checkSpot = 0;
+                round += 1;
+                turnNum = 0;
+                for (int r = 0; r < tttBoard.length; r++) {
+                    for (int c = 0; c < tttBoard[r].length; c++) {
+                        tttBoard[r][c] = " ";
+                    }
+                }
+            } else {
+                checkSpot = 0;
             }
             badInput1 = true;
             badInput2 = true;
