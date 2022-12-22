@@ -287,12 +287,13 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
                     } else {
                         checkSpot = 0;
                     }
+                    // increasing turn count every time a player play though a round fully, if there is a invalid input, the turns will not increse
                     if (validInput) {
                         turnNum += 1;
                     }
                     // If a bad input is experienced during the code, this will reset it back to normal
                     validInput = true;
-                    // increasing turn count every time a player play though a round fully
+
 
 
                 }
