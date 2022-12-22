@@ -24,8 +24,6 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
         double round = 1; // to track rounds
         double player1Score = 0; // player 1 score
         double player2Score = 0; // player 2 score
-        int player1Input = 0; // player 1's inputs
-        int player2Input = 0; // player 2's inputs
         int playerInput = 0;
         String player = " ";
         int checkSpot = 0; // Checks how many X or O are in the table
@@ -33,8 +31,6 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
 
         // creating boolean variables to control while loops
         boolean keepLooping = true;
-        boolean badInput1 = true;
-        boolean badInput2 = true;
         boolean validInput = true;
 
 
@@ -78,8 +74,6 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
                     // resetting scanner (for when the round repeats)
                     scan = new Scanner(System.in);
 
-
-
                     // if player chooses to exit game (enters negative value), game will end
                     if ((playerExit.equals("n"))) {
                         double player1WinPercent = (player1Score / (round - 1)) * 100;
@@ -116,201 +110,17 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
                         System.out.println("Player 1, choose a box (1-9): ");
                         playerInput = scan.nextInt();
                         player = "X";
-                        /*
-                        while (badInput1) { // If a spot on the board is taken, the player will have to reenter a new number
-                            System.out.println("Player 1, choose a box (1-9): ");
-                            player1Input = scan.nextInt();
 
-                            switch (player1Input) {
-                                case 1:
-                                    if (tttBoard[0][0] == " ") {
-                                        tttBoard[0][0] = player1;
-                                        badInput1 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-
-                                case 2:
-                                    if (tttBoard[0][1] == " ") {
-                                        tttBoard[0][1] = player1;
-                                        badInput1 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-
-                                case 3:
-                                    if (tttBoard[0][2] == " ") {
-                                        tttBoard[0][2] = player1;
-                                        badInput1 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-                                case 4:
-                                    if (tttBoard[1][0] == " ") {
-                                        tttBoard[1][0] = player1;
-                                        badInput1 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-
-                                case 5:
-                                    if (tttBoard[1][1] == " ") {
-                                        tttBoard[1][1] = player1;
-                                        badInput1 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-                                case 6:
-                                    if (tttBoard[1][2] == " ") {
-                                        tttBoard[1][2] = player1;
-                                        badInput1 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-                                case 7:
-                                    if (tttBoard[2][0] == " ") {
-                                        tttBoard[2][0] = player1;
-                                        badInput1 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-                                case 8:
-                                    if (tttBoard[2][1] == " ") {
-                                        tttBoard[2][1] = player1;
-                                        badInput1 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-                                case 9:
-                                    if (tttBoard[2][2] == " ") {
-                                        tttBoard[2][2] = player1;
-                                        badInput1 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-                            }
-                        }
-
- */
                     } else { // if the number of turns is even player 2 will go
                         System.out.println("Player 2, choose a box (1-9): ");
                         playerInput = scan.nextInt();
                         player = "O";
-/*                        while (badInput2) {
-                            System.out.println("Player 2, choose a box (1-9): ");
-                            player2Input = scan.nextInt();
-
-                            switch (player2Input) {
-                                case 1:
-                                    if (tttBoard[0][0] == " ") {
-                                        tttBoard[0][0] = player2;
-                                        badInput2 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-
-                                case 2:
-                                    if (tttBoard[0][1] == " ") {
-                                        tttBoard[0][1] = player2;
-                                        badInput2 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-                                case 3:
-                                    if (tttBoard[0][2] == " ") {
-                                        tttBoard[0][2] = player2;
-                                        badInput2 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-                                case 4:
-                                    if (tttBoard[1][0] == " ") {
-                                        tttBoard[1][0] = player2;
-                                        badInput2 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-                                case 5:
-                                    if (tttBoard[1][1] == " ") {
-                                        tttBoard[1][1] = player2;
-                                        badInput2 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-                                case 6:
-                                    if (tttBoard[1][2] == " ") {
-                                        tttBoard[1][2] = player2;
-                                        badInput2 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-                                case 7:
-                                    if (tttBoard[2][0] == " ") {
-                                        tttBoard[2][0] = player2;
-                                        badInput2 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-                                case 8:
-                                    if (tttBoard[2][1] == " ") {
-                                        tttBoard[2][1] = player2;
-                                        badInput2 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-                                case 9:
-                                    if (tttBoard[2][2] == " ") {
-                                        tttBoard[2][2] = player2;
-                                        badInput2 = false;
-                                        break;
-                                    } else {
-                                        System.out.println("This space it taken. Renter your number.");
-                                        break;
-                                    }
-                            }
-                        }
- */
                     }
                     switch (playerInput) {
 
                         case 1:
                             if (tttBoard[0][0] == " ") {
                                 tttBoard[0][0] = player;
-                                badInput2 = false;
                                 break;
                             } else {
                                 System.out.println("This space it taken. Renter your number.");
@@ -321,7 +131,6 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
                         case 2:
                             if (tttBoard[0][1] == " ") {
                                 tttBoard[0][1] = player;
-                                badInput2 = false;
                                 break;
                             } else {
                                 System.out.println("This space it taken. Renter your number.");
@@ -331,7 +140,6 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
                         case 3:
                             if (tttBoard[0][2] == " ") {
                                 tttBoard[0][2] = player;
-                                badInput2 = false;
                                 break;
                             } else {
                                 System.out.println("This space it taken. Renter your number.");
@@ -341,7 +149,6 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
                         case 4:
                             if (tttBoard[1][0] == " ") {
                                 tttBoard[1][0] = player;
-                                badInput2 = false;
                                 break;
                             } else {
                                 System.out.println("This space it taken. Renter your number.");
@@ -351,7 +158,6 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
                         case 5:
                             if (tttBoard[1][1] == " ") {
                                 tttBoard[1][1] = player;
-                                badInput2 = false;
                                 break;
                             } else {
                                 System.out.println("This space it taken. Renter your number.");
@@ -361,7 +167,6 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
                         case 6:
                             if (tttBoard[1][2] == " ") {
                                 tttBoard[1][2] = player;
-                                badInput2 = false;
                                 break;
                             } else {
                                 System.out.println("This space it taken. Renter your number.");
@@ -371,7 +176,6 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
                         case 7:
                             if (tttBoard[2][0] == " ") {
                                 tttBoard[2][0] = player;
-                                badInput2 = false;
                                 break;
                             } else {
                                 System.out.println("This space it taken. Renter your number.");
@@ -381,7 +185,6 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
                         case 8:
                             if (tttBoard[2][1] == " ") {
                                 tttBoard[2][1] = player;
-                                badInput2 = false;
                                 break;
                             } else {
                                 System.out.println("This space it taken. Renter your number.");
@@ -391,7 +194,6 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
                         case 9:
                             if (tttBoard[2][2] == " ") {
                                 tttBoard[2][2] = player;
-                                badInput2 = false;
                                 break;
                             } else {
                                 System.out.println("This space it taken. Renter your number.");
@@ -489,8 +291,6 @@ public class Lesson_15c_Tic_Tac_Toe_Copy {
                         turnNum += 1;
                     }
                     // If a bad input is experienced during the code, this will reset it back to normal
-                    badInput1 = true;
-                    badInput2 = true;
                     validInput = true;
                     // increasing turn count every time a player play though a round fully
 
