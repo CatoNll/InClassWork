@@ -49,7 +49,6 @@ public class Lesson_15d_Mean_And_Mode {
                     int val = board[r][selectedColumn];
                     columnSum += val;
                     columnCounter[val] += 1;
-
             }
             System.out.println("The mean of column " + selectedColumn + " is: " + (columnSum/rows));
             for (int i = 0; i < columnCounter.length; i++){
